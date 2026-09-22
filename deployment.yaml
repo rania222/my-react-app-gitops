@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: f1-dep
+  labels:
+    app: f1-dep
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: f1-dep
+
+  template:
+    metadata:
+      labels:
+        app: f1-dep
+
+    spec:
+      containers:
+        - name: my-react-app
+          image: my-react-app:latest
+          imagePullPolicy: IfNotPresent
